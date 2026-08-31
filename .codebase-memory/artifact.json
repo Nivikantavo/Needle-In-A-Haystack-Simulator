@@ -1,0 +1,11 @@
+{
+    "schema_version": 2,
+    "commit": "",
+    "indexed_at": "2026-08-31T08:04:04Z",
+    "project": "E-GitHub-Needle-In-A-Haystack-Simulator",
+    "nodes": 143157,
+    "edges": 376472,
+    "original_size": 254738432,
+    "compressed_size": 32434627,
+    "compression_level": 9
+}

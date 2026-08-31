@@ -1,0 +1,34 @@
+---
+description: Non-negotiable haystack architecture for this Unity WebGL game. Apply to every change that adds objects, physics, rendering, pickup, or player collision with hay.
+alwaysApply: true
+---
+
+# Haystack constitution
+
+This is a Unity 6 WebGL game: the player sorts thousands of straws and finds one needle. Full rationale: `Docs/Architecture/ADR-001-haystack-runtime.md`. If a request conflicts with this file, follow this file and say so.
+
+## Hard bans
+
+- Do not give each straw its own GameObject, Transform, MeshRenderer, Rigidbody, Collider, or MonoBehaviour.
+- Do not put `Update` / `OnMouse*` / per-straw scripts on hay.
+- Do not use `MeshCollider` on a straw. Do not let ECM2 collide with every straw.
+- Do not simulate the whole pile with PhysX at runtime.
+- Do not use transparent hay materials (overdraw). Prefer opaque or hard alpha clip.
+- Do not introduce DOTS/Entities, compute shaders, or `DrawMeshInstancedIndirect` for this system.
+- Do not make Jobs/Burst a required path (WebGL is effectively single-threaded).
+
+## Required shape
+
+Hay is data. One `HaystackSystem` (or equivalent manager) owns a `Straw[]` / parallel arrays:
+
+- visual layer — all straws via `Graphics.DrawMeshInstanced` (one low-poly mesh, one instanced material, batches ≤ 1023)
+- pick layer — ray vs oriented capsule through a spatial hash; only non-buried surface straws (outer shell of the remaining pile: top and sides, not a top-down height band)
+- hot pool — 1–8 real GameObjects for the held straw and recently thrown ones; after settle, write the matrix back and demote
+
+The needle is a flag on one index (`IsNeedle`), not a separate system. Draw it with its own mesh/material from the start (one `DrawMesh`, still not a per-straw GO). Place it near the volume's vertical axis, not on the exposed shell.
+
+Player walks on a separate pile-volume collider that shrinks in height and footprint as hay is removed — never on per-straw colliders.
+
+## When implementing
+
+Read the ADR before adding hay, pickup, pile physics, instancing, or WebGL-related rendering. Change the ADR and this rule together if a decision is overturned; do not silently contradict them in code.

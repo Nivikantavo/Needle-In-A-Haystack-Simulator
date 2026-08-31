@@ -1,0 +1,59 @@
+---
+description: Haystack runtime details — GPU instancing, spatial pick, hot physics pool, pile layers, needle flag, ECM2 collision, WebGL limits. Use when implementing or changing hay, pickup, rendering, physics, or the needle.
+alwaysApply: false
+---
+
+# Haystack runtime
+
+Source of truth: `Docs/Architecture/ADR-001-haystack-runtime.md`. Constitution (always on) wins if this file drifts.
+
+## Data
+
+```csharp
+struct Straw
+{
+    public Matrix4x4 LocalToWorld;
+    public byte Flags;      // Buried, Grabbed, Discarded, IsNeedle
+    public ushort Variant;  // tint / mesh variant, not extra materials
+}
+```
+
+No LINQ, no per-frame allocations, no logs on the hot path. One manager ticks; straws do not.
+
+## Render
+
+- Straw mesh: 12–24 tris (capsule/cylinder). One material, GPU instancing enabled.
+- Draw with `Graphics.DrawMeshInstanced` in 1023-sized batches.
+- Variation = matrix rotation + instanced color. Do not clone materials.
+- Shadows: one blob/decal or one cascade on the pile, not per-instance shadows.
+- Bake the resting pile in the Editor (simulate Rigidbodies once) when you want a settled look. Difficulty presets store radius / height / count / seed only; shape is chosen on `HaystackSystem`. Play generates the layout in memory and does not serialize `Matrix4x4[]`.
+
+## Pick and grab
+
+1. Camera ray (viewport center). Hit hot-pool colliders first.
+2. Else query the spatial hash (cell ~0.3–0.5 m), test ray vs oriented capsule (radius may be inflated for aim), take nearest non-`Buried` / non-`Grabbed` within arm reach.
+3. Hover = recolor one instance id. Do not outline all hay.
+4. Grab (RMB, empty hand) = set `Grabbed`, hide that instance, copy transform into a pooled GO.
+5. Throw (RMB while holding) = dynamic Rigidbody until near-zero velocity, then demote: write matrix back, return GO to pool.
+
+Do not use `OnMouseDown` or 3000 scene colliders. Avoid GPU picking / `ReadPixels` unless CPU pick is proven too slow.
+
+Gameplay default: the **exposed shell** of the remaining pile is pickable (top and sides, not a top-only peel). Interior straws stay `Buried`. Removing one clears `Buried` on newly exposed neighbors. `HayPileVolume` shrinks in height and diameter with remaining hay. A fully clickable scattered pile is allowed later, still via the hash, not via colliders.
+
+## Physics and player
+
+- CapsuleCollider only on hot-pool objects. Never MeshCollider on a straw.
+- Layers: `HayVisual` (no player collision), `HayHot` (pool only), `HayPileVolume` (walkable volume).
+- ECM2 uses `HayPileVolume` only. Shrink or swap that collider as the pile shrinks.
+- Pool size 4–8. Held straw may be kinematic and follow the hand/cursor.
+
+## Needle
+
+One index with `IsNeedle`. Always draw that index with the needle mesh/material (one `DrawMesh`), never as hay. Spawn it near the vertical axis of the volume (inner ~15% of the slice radius, seed-stable), so the exposed shell is hay until the player digs. Win condition reads the flag on grab, not a special collider type. Buried still blocks pick.
+
+## WebGL
+
+- Target WebGL 2. No compute, no Indirect instancing, no Entities Graphics.
+- Do not require multithreaded WASM / SharedArrayBuffer.
+- Profile a WebGL build, not only the Editor. Watch Physics, Scripts, and SetPass.
+- Prefer URP later for shader control; Built-in is acceptable for the first instancing prototype.
