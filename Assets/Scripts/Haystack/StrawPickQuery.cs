@@ -54,7 +54,7 @@ namespace Needle.Haystack
                     continue;
 
                 byte flag = flags != null && strawIndex < flags.Length ? flags[strawIndex] : (byte)0;
-                if ((flag & (byte)(StrawFlags.Buried | StrawFlags.Grabbed)) != 0)
+                if ((flag & (byte)(StrawFlags.Buried | StrawFlags.Grabbed | StrawFlags.Discarded)) != 0)
                     continue;
 
                 Matrix4x4 world = parent * locals[strawIndex];

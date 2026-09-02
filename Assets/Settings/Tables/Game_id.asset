@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Game_id
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: id
+  m_SharedData: {fileID: 11400000, guid: 47415a6aeb58ff5498d54bbf5e9face2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 24316534784
+    m_Localized: Mudah
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44998647808
+    m_Localized: Sedang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70344826880
+    m_Localized: Keras
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86719389696
+    m_Localized: Pakar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254504132608
+    m_Localized: Mode Waktu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516006404096
+    m_Localized: Mode Duel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686257397760
+    m_Localized: Pengaturan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 854801309696
+    m_Localized: Musik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919699775488
+    m_Localized: Kecepatan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 946077753344
+    m_Localized: Game Lainnya
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989501382656
+    m_Localized: Bahasa inggris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1032555913216
+    m_Localized: Perancis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057381998592
+    m_Localized: Jerman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080211595264
+    m_Localized: Indonesia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112709062656
+    m_Localized: Italia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137140883456
+    m_Localized: Portugis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1191801053184
+    m_Localized: Rusia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1228941615104
+    m_Localized: Spanyol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1256787599360
+    m_Localized: Turki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1341193773056
+    m_Localized: Kemenangan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1399247134720
+    m_Localized: Jarumnya sudah ditemukan!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10798111973376
+    m_Localized: Bahasa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12970119716864
+    m_Localized: Papan Peringkat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36658277834752
+    m_Localized: Rumah
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36715421032448
+    m_Localized: Kemajuan akan hilang!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36980756897792
+    m_Localized: Tinggal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45361840316416
+    m_Localized: Peringkat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47070868201472
+    m_Localized: Selamat!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76194227740672
+    m_Localized: Jarum ditemukan!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80351567339520
+    m_Localized: Iklan akan diluncurkan setelah
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379352665612288
+    m_Localized: hapus 0 bagian
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

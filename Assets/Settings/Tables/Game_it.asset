@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Game_it
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: it
+  m_SharedData: {fileID: 11400000, guid: 47415a6aeb58ff5498d54bbf5e9face2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 24316534784
+    m_Localized: Facile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44998647808
+    m_Localized: Mezzo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70344826880
+    m_Localized: Difficile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86719389696
+    m_Localized: Esperto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254504132608
+    m_Localized: "Modalit\xE0 Tempo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516006404096
+    m_Localized: "Modalit\xE0 Duello"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686257397760
+    m_Localized: Impostazioni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 854801309696
+    m_Localized: Musica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919699775488
+    m_Localized: Valutare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 946077753344
+    m_Localized: Altri giochi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989501382656
+    m_Localized: Inglese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1032555913216
+    m_Localized: francese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057381998592
+    m_Localized: tedesco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080211595264
+    m_Localized: indonesiano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112709062656
+    m_Localized: Italiano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137140883456
+    m_Localized: portoghese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1191801053184
+    m_Localized: russo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1228941615104
+    m_Localized: spagnolo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1256787599360
+    m_Localized: turco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1341193773056
+    m_Localized: Vittoria
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1399247134720
+    m_Localized: "L'ago \xE8 stato ritrovato!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10798111973376
+    m_Localized: Lingua
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12970119716864
+    m_Localized: Classifica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36658277834752
+    m_Localized: Casa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36715421032448
+    m_Localized: I progressi compiuti andranno persi!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36980756897792
+    m_Localized: Rimanere
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45361840316416
+    m_Localized: Classifica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47070868201472
+    m_Localized: Congratulazioni!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76194227740672
+    m_Localized: Bambino trovato!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80351567339520
+    m_Localized: "L'annuncio verr\xE0 lanciato dopo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379352665612288
+    m_Localized: rimuovere {0} pezzi
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -33,8 +33,8 @@ No LINQ, no per-frame allocations, no logs on the hot path. One manager ticks; s
 1. Camera ray (viewport center). Hit hot-pool colliders first.
 2. Else query the spatial hash (cell ~0.3–0.5 m), test ray vs oriented capsule (radius may be inflated for aim), take nearest non-`Buried` / non-`Grabbed` within arm reach.
 3. Hover = recolor one instance id. Do not outline all hay.
-4. Grab (RMB, empty hand) = set `Grabbed`, hide that instance, copy transform into a pooled GO.
-5. Throw (RMB while holding) = dynamic Rigidbody until near-zero velocity, then demote: write matrix back, return GO to pool.
+4. Grab (LMB or RMB, empty hand) = set `Grabbed`, hide that instance, copy transform into a pooled GO.
+5. Throw (LMB or RMB while holding) = dynamic Rigidbody until near-zero velocity, then demote: write matrix back, return GO to pool.
 
 Do not use `OnMouseDown` or 3000 scene colliders. Avoid GPU picking / `ReadPixels` unless CPU pick is proven too slow.
 

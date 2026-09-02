@@ -143,6 +143,14 @@ namespace Needle.Haystack
             _slots[_heldSlot].Transform.SetPositionAndRotation(position, rotation);
         }
 
+        public void DiscardHeld()
+        {
+            if (_heldSlot < 0)
+                return;
+
+            RecycleSlot(null, _heldSlot, false);
+        }
+
         public bool TryThrow(Vector3 velocity, out int strawIndex)
         {
             strawIndex = -1;
@@ -195,7 +203,7 @@ namespace Needle.Haystack
                 _slots[i] = slot;
 
                 if (slot.StillTime >= settleHold || slot.Age >= maxAge)
-                    Demote(owner, i);
+                    RecycleSlot(owner, i, true);
             }
         }
 
@@ -225,16 +233,21 @@ namespace Needle.Haystack
             world = Matrix4x4.TRS(t.position, t.rotation, t.lossyScale);
         }
 
-        void Demote(HaystackSystem owner, int slotIndex)
+        void RecycleSlot(HaystackSystem owner, int slotIndex, bool writeBack)
         {
             Slot slot = _slots[slotIndex];
             if (slot.Tag.State == StrawHotState.Free)
                 return;
 
             int strawIndex = slot.Tag.StrawIndex;
-            Matrix4x4 world = Matrix4x4.TRS(slot.Transform.position, slot.Transform.rotation, slot.Transform.lossyScale);
-            if (owner != null && strawIndex >= 0)
+            if (writeBack && owner != null && strawIndex >= 0)
+            {
+                Matrix4x4 world = Matrix4x4.TRS(
+                    slot.Transform.position,
+                    slot.Transform.rotation,
+                    slot.Transform.lossyScale);
                 owner.DemoteStraw(strawIndex, world);
+            }
 
             slot.Tag.State = StrawHotState.Free;
             slot.Tag.StrawIndex = -1;
@@ -275,7 +288,7 @@ namespace Needle.Haystack
             if (oldest < 0)
                 return -1;
 
-            Demote(owner, oldest);
+            RecycleSlot(owner, oldest, true);
             return oldest;
         }
 

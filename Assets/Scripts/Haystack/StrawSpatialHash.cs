@@ -6,7 +6,7 @@ namespace Needle.Haystack
     public sealed class StrawSpatialHash
     {
         const int Bias = 512;
-        const byte OccupiedMask = (byte)(StrawFlags.Buried | StrawFlags.Grabbed);
+        const byte OccupiedMask = (byte)(StrawFlags.Buried | StrawFlags.Grabbed | StrawFlags.Discarded);
 
         readonly Dictionary<int, int> _heads = new Dictionary<int, int>(256);
         readonly float _cellSize;

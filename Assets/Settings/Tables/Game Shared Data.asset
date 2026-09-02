@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Game Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Game
+  m_TableCollectionNameGuidString: 47415a6aeb58ff5498d54bbf5e9face2
+  m_Entries:
+  - m_Id: 379352665612288
+    m_Key: remove pieces
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24316534784
+    m_Key: Easy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44998647808
+    m_Key: Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70344826880
+    m_Key: Hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86719389696
+    m_Key: Expert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254504132608
+    m_Key: Time Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516006404096
+    m_Key: Duel Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686257397760
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 854801309696
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919699775488
+    m_Key: Rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 946077753344
+    m_Key: Other Games
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989501382656
+    m_Key: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1032555913216
+    m_Key: French
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057381998592
+    m_Key: German
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080211595264
+    m_Key: Indonesian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112709062656
+    m_Key: Italian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137140883456
+    m_Key: Portuguese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1191801053184
+    m_Key: Russian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1228941615104
+    m_Key: Spanish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1256787599360
+    m_Key: Turkish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1341193773056
+    m_Key: Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1399247134720
+    m_Key: The needle has been found!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10798111973376
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12970119716864
+    m_Key: Leaderboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36658277834752
+    m_Key: Home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36715421032448
+    m_Key: Progress will be lost!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36980756897792
+    m_Key: Stay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45361840316416
+    m_Key: Ranking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47070868201472
+    m_Key: Congratulations!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76194227740672
+    m_Key: Needle found!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80351567339520
+    m_Key: Ad will launch after
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5543226383750922306
+  references:
+    version: 2
+    RefIds:
+    - rid: 5543226383750922306
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1788247447091

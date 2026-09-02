@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Game_pt
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 47415a6aeb58ff5498d54bbf5e9face2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 24316534784
+    m_Localized: "F\xE1cil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44998647808
+    m_Localized: "M\xE9dio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70344826880
+    m_Localized: Duro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86719389696
+    m_Localized: Especialista
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254504132608
+    m_Localized: Modo de tempo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516006404096
+    m_Localized: Modo Duelo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686257397760
+    m_Localized: "Configura\xE7\xF5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 854801309696
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919699775488
+    m_Localized: Avaliar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 946077753344
+    m_Localized: Outros jogos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989501382656
+    m_Localized: "Ingl\xEAs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1032555913216
+    m_Localized: "Franc\xEAs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057381998592
+    m_Localized: "Alem\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080211595264
+    m_Localized: "indon\xE9sio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112709062656
+    m_Localized: italiano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137140883456
+    m_Localized: "Portugu\xEAs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1191801053184
+    m_Localized: russo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1228941615104
+    m_Localized: Espanhol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1256787599360
+    m_Localized: turco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1341193773056
+    m_Localized: "Vit\xF3ria"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1399247134720
+    m_Localized: A agulha foi encontrada!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10798111973376
+    m_Localized: Linguagem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12970119716864
+    m_Localized: "Classifica\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36658277834752
+    m_Localized: Lar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36715421032448
+    m_Localized: "O progresso ser\xE1 perdido!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36980756897792
+    m_Localized: Ficar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45361840316416
+    m_Localized: "Classifica\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47070868201472
+    m_Localized: "Parab\xE9ns!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76194227740672
+    m_Localized: Agulha encontrada!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80351567339520
+    m_Localized: "O an\xFAncio ser\xE1 lan\xE7ado depois"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379352665612288
+    m_Localized: "remover {0} pe\xE7as"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

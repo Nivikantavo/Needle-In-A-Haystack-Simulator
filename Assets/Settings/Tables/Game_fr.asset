@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Game_fr
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 47415a6aeb58ff5498d54bbf5e9face2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 24316534784
+    m_Localized: Simple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44998647808
+    m_Localized: moyen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70344826880
+    m_Localized: Difficile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86719389696
+    m_Localized: expert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254504132608
+    m_Localized: Mode temporel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516006404096
+    m_Localized: Mode Duel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686257397760
+    m_Localized: installation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 854801309696
+    m_Localized: musique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919699775488
+    m_Localized: vitesse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 946077753344
+    m_Localized: Autres jeux
+    m_Metadata:
+      m_Items: []
+  - m_Id: 989501382656
+    m_Localized: Anglais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1032555913216
+    m_Localized: "Fran\xE7ais"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057381998592
+    m_Localized: Allemand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080211595264
+    m_Localized: "Indon\xE9sie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112709062656
+    m_Localized: italien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137140883456
+    m_Localized: portugais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1191801053184
+    m_Localized: russe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1228941615104
+    m_Localized: Espagnol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1256787599360
+    m_Localized: Turquie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1341193773056
+    m_Localized: victoire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1399247134720
+    m_Localized: "L'aiguille a \xE9t\xE9 trouv\xE9e !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10798111973376
+    m_Localized: langue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12970119716864
+    m_Localized: Classements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36658277834752
+    m_Localized: Maison
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36715421032448
+    m_Localized: "Les r\xE9sultats seront g\xE2ch\xE9s !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36980756897792
+    m_Localized: Rester
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45361840316416
+    m_Localized: classement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47070868201472
+    m_Localized: "F\xE9licitations!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76194227740672
+    m_Localized: "L'aiguille a \xE9t\xE9 trouv\xE9e !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80351567339520
+    m_Localized: "La publicit\xE9 sera diffus\xE9e ult\xE9rieurement."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379352665612288
+    m_Localized: Supprimer {0} fragments
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

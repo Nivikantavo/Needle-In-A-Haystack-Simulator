@@ -155,6 +155,17 @@ namespace Needle.Haystack
             _volumeDirty = true;
         }
 
+        public void Rebuild()
+        {
+            if (!Application.isPlaying)
+            {
+                Debug.LogError("HaystackSystem: Rebuild() requires Play Mode.", this);
+                return;
+            }
+
+            LoadRuntime();
+        }
+
         public void ApplyGenerated(Straw[] straws)
         {
             int n = straws != null ? straws.Length : 0;
@@ -309,7 +320,7 @@ namespace Needle.Haystack
                 return false;
 
             byte flag = _runtimeFlags[_hoverIndex];
-            if ((flag & (byte)StrawFlags.Buried) != 0)
+            if ((flag & (byte)(StrawFlags.Buried | StrawFlags.Discarded)) != 0)
                 return false;
 
             EnsureHotPool();
@@ -339,6 +350,44 @@ namespace Needle.Haystack
         public void FollowHold(Vector3 position, Quaternion rotation)
         {
             _hotPool.FollowHold(position, rotation);
+        }
+
+        public void ClearHeld()
+        {
+            if (!Application.isPlaying || !_hotPool.IsHolding)
+                return;
+
+            _hotPool.DiscardHeld();
+            SetHover(-1);
+        }
+
+        public int DiscardExposedHay(int count)
+        {
+            if (!Application.isPlaying || !_runtimeLoaded || count <= 0 || _runtimeFlags == null)
+                return 0;
+
+            int discarded = 0;
+            int guard = _runtimeCount;
+            while (discarded < count && guard-- > 0)
+            {
+                int marked = HaystackDiscard.MarkExposed(_runtimeFlags, _runtimeCount, count - discarded);
+                if (marked <= 0)
+                    break;
+
+                discarded += marked;
+                RefreshSurface();
+            }
+
+            if (discarded <= 0)
+                return 0;
+
+            if (_hoverIndex >= 0 &&
+                _hoverIndex < _runtimeCount &&
+                (_runtimeFlags[_hoverIndex] & (byte)StrawFlags.Discarded) != 0)
+                SetHover(-1);
+
+            SyncPileVolume();
+            return discarded;
         }
 
         public void DemoteStraw(int strawIndex, Matrix4x4 world)
@@ -507,10 +556,10 @@ namespace Needle.Haystack
                 while (batchCount < DrawBatchSize && index < count)
                 {
                     byte flag = flags != null && index < flags.Length ? flags[index] : (byte)0;
-                    bool grabbed = (flag & (byte)StrawFlags.Grabbed) != 0;
+                    bool hidden = (flag & (byte)(StrawFlags.Grabbed | StrawFlags.Discarded)) != 0;
                     bool hovered = index == hover;
                     bool isNeedle = StrawNeedle.HasFlag(flag);
-                    if (!grabbed && !hovered && !isNeedle)
+                    if (!hidden && !hovered && !isNeedle)
                     {
                         _batch[batchCount] = parent * locals[index];
                         batchCount++;
@@ -539,14 +588,14 @@ namespace Needle.Haystack
             if (needle >= 0 && needle < count && needle != hover)
             {
                 byte needleFlag = flags != null && needle < flags.Length ? flags[needle] : (byte)0;
-                if ((needleFlag & (byte)StrawFlags.Grabbed) == 0)
+                if ((needleFlag & (byte)(StrawFlags.Grabbed | StrawFlags.Discarded)) == 0)
                     DrawSingle(parent * locals[needle], true, false);
             }
 
             if (hover >= 0 && hover < count)
             {
                 byte flag = flags != null && hover < flags.Length ? flags[hover] : (byte)0;
-                if ((flag & (byte)StrawFlags.Grabbed) == 0)
+                if ((flag & (byte)(StrawFlags.Grabbed | StrawFlags.Discarded)) == 0)
                     DrawSingle(parent * locals[hover], StrawNeedle.HasFlag(flag), true);
             }
         }

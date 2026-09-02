@@ -19,10 +19,12 @@ namespace Needle.Haystack
         [SerializeField] float _throwUp = 1.2f;
 
         Collider[] _ignoreColliders;
+        bool _useMouseGrab = true;
 
         public HaystackSystem Haystack { get => _haystack; set => _haystack = value; }
         public Camera AimCamera { get => _camera; set => _camera = value; }
         public float PickDistance { get => _pickDistance; set => _pickDistance = value; }
+        public bool UseMouseGrab { get => _useMouseGrab; set => _useMouseGrab = value; }
 
         void Awake()
         {
@@ -45,7 +47,13 @@ namespace Needle.Haystack
             Ray ray = CenterRay();
             _haystack.TickHover(ray, _pickDistance);
 
-            if (!PressedGrab())
+            if (_useMouseGrab && PressedGrab())
+                Collect();
+        }
+
+        public void Collect()
+        {
+            if (!isActiveAndEnabled || _haystack == null || _camera == null)
                 return;
 
             if (_haystack.IsHolding)
@@ -69,7 +77,7 @@ namespace Needle.Haystack
 
         bool PressedGrab()
         {
-            return Input.GetMouseButtonDown(1);
+            return Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1);
         }
 
         Ray CenterRay()

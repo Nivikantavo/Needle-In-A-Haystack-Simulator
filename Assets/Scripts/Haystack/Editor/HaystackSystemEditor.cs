@@ -131,7 +131,7 @@ namespace Needle.Haystack.Editor
                 "Generate builds the pile in memory. Play does the same from the selected preset.\n" +
                 "Physics Bake optionally settles those poses so the pile looks rested. It does not make the pile walkable.\n" +
                 "The player collides with a single PileVolume collider (layer HayPileVolume).\n" +
-                "Play mode: look at a reachable straw (it highlights), RMB picks it up if the hand is empty, RMB again throws.\n" +
+                "Play mode: look at a reachable straw (it highlights), LMB or RMB picks it up if the hand is empty, click again throws.\n" +
                 "One straw is the needle: metal mesh from the start, spawned near the volume axis. Dig to expose it, then grab.",
                 MessageType.Info);
             if (preset != null)

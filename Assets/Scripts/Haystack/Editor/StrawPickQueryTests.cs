@@ -83,6 +83,43 @@ namespace Needle.Haystack.Editor.Tests
         }
 
         [Test]
+        public void TryPick_SkipsDiscarded()
+        {
+            var locals = new[]
+            {
+                StrawAt(new Vector3(1f, 0f, 0f)),
+                StrawAt(new Vector3(2f, 0f, 0f))
+            };
+            var flags = new[] { (byte)StrawFlags.Discarded, (byte)0 };
+            StrawPickQuery query = QueryWith(locals, flags);
+
+            Assert.IsTrue(query.TryPick(
+                new Ray(new Vector3(-1f, 0f, 0f), Vector3.right),
+                8f,
+                locals,
+                flags,
+                locals.Length,
+                Matrix4x4.identity,
+                1f,
+                out int index,
+                out _));
+            Assert.AreEqual(1, index);
+
+            flags[1] = (byte)StrawFlags.Discarded;
+            query.Rebuild(locals, flags, locals.Length, Matrix4x4.identity);
+            Assert.IsFalse(query.TryPick(
+                new Ray(new Vector3(-1f, 0f, 0f), Vector3.right),
+                8f,
+                locals,
+                flags,
+                locals.Length,
+                Matrix4x4.identity,
+                1f,
+                out _,
+                out _));
+        }
+
+        [Test]
         public void TryPick_RespectsMaxDistance()
         {
             var locals = new[] { StrawAt(new Vector3(3f, 0f, 0f)) };
