@@ -1,0 +1,1481 @@
+{
+    "TotalBuildSizeBytes": 19928387,
+    "DataMode": "DependenciesFallback",
+    "HasData": true,
+    "TrackedAssetCount": 209,
+    "TrackedBytes": 13421444,
+    "StatusMessage": "Build: Succeeded | Total: 19,01 MB | Mode: DependenciesFallback | Tracked: 209",
+    "BuildTargetName": "WebGL",
+    "BuildTimeSeconds": 2455.0261793,
+    "BuildSucceeded": true,
+    "UsedBuildReport": true,
+    "PackedGroupsCount": 0,
+    "EmptyPathsCount": 0,
+    "ModeDiagnostics": "PackedAssets rejected: BuildReport.packedAssets is null or empty (Length=0). WebGL builds may not provide per-asset packed sizes. | Used DependenciesFallback.",
+    "SavedAt": "2026-09-02T16:49:40.7880920+03:00",
+    "Assets": [
+        {
+            "Path": "Assets/Audio/Calm Cowboy Loop.mp3",
+            "SizeBytes": 6105614,
+            "TypeName": "AudioClip",
+            "Category": "Audio",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Art/Loading/Field.png",
+            "SizeBytes": 2210081,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Fonts/Quicksand-Bold SDF.asset",
+            "SizeBytes": 635976,
+            "TypeName": "TMP_FontAsset",
+            "Category": "Fonts",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Fonts/Quicksand-SemiBold SDF.asset",
+            "SizeBytes": 635125,
+            "TypeName": "TMP_FontAsset",
+            "Category": "Fonts",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Fonts/Rubik-Medium SDF.asset",
+            "SizeBytes": 631990,
+            "TypeName": "TMP_FontAsset",
+            "Category": "Fonts",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scenes/GameplayScene.unity",
+            "SizeBytes": 379956,
+            "TypeName": "SceneAsset",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/Prefabs/Prefabs_DemoScene_Panels/Light/Ranking.prefab",
+            "SizeBytes": 294350,
+            "TypeName": "GameObject",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/TMP/TextMeshProUGUI.cs",
+            "SizeBytes": 285856,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Source/Components/CharacterMovement.cs",
+            "SizeBytes": 185433,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/Prefabs/Prefabs_DemoScene_Panels/Light/Settings.prefab",
+            "SizeBytes": 178063,
+            "TypeName": "GameObject",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/TMP/TMP_FontAsset.cs",
+            "SizeBytes": 158653,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rotate_1.png",
+            "SizeBytes": 153343,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Editor Resources/Gizmos/TMP - Font Asset Icon.psd",
+            "SizeBytes": 103962,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/TextMesh Pro/Fonts/ComicRelief-Bold.ttf",
+            "SizeBytes": 93304,
+            "TypeName": "Font",
+            "Category": "Fonts",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Editor Resources/Gizmos/TMP - Text Component Icon.psd",
+            "SizeBytes": 89826,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs",
+            "SizeBytes": 79906,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/Prefabs/Prefabs_DemoScene_Panels/Light/Language.prefab",
+            "SizeBytes": 65756,
+            "TypeName": "GameObject",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/Prefabs/Prefabs_DemoScene_Panels/Light/Popup_Rate.prefab",
+            "SizeBytes": 58289,
+            "TypeName": "GameObject",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/ScrollRect.cs",
+            "SizeBytes": 56272,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/Prefabs/Prefabs_DemoScene_Panels/Light/Play_Result_Victory_Common.prefab",
+            "SizeBytes": 40150,
+            "TypeName": "GameObject",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Slider.cs",
+            "SizeBytes": 28073,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/Haystack/HaystackSystem.cs",
+            "SizeBytes": 27168,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/MainMenuController.cs",
+            "SizeBytes": 27005,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/EventSystem/InputModules/StandaloneInputModule.cs",
+            "SizeBytes": 26330,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/Prefabs/RancedItem.prefab",
+            "SizeBytes": 26216,
+            "TypeName": "GameObject",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/EventSystem/EventSystem.cs",
+            "SizeBytes": 20788,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/CanvasScaler.cs",
+            "SizeBytes": 20724,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Models/Meshes/Stairs.asset",
+            "SizeBytes": 20621,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Icon_ItemIcons/256/Itemicon_Equipment_Weapon_Battle.Png",
+            "SizeBytes": 20514,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Character/Character_ss_Sample06.png",
+            "SizeBytes": 18474,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Textures/T_Charcoal_1.png",
+            "SizeBytes": 18158,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Frame.png",
+            "SizeBytes": 17666,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Deco_Leaf.png",
+            "SizeBytes": 15433,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Models/Meshes/Cube.asset",
+            "SizeBytes": 14337,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Character/Character_ss_Sample02.png",
+            "SizeBytes": 14310,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/GridLayoutGroup.cs",
+            "SizeBytes": 14139,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/GraphicRaycaster.cs",
+            "SizeBytes": 13937,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Art/Haystack/Needle.mesh",
+            "SizeBytes": 13553,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Deco_Crown.png",
+            "SizeBytes": 12836,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Character/Character_ss_Sample05.png",
+            "SizeBytes": 11660,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/IconGroup_TitleIcon_Setting.png",
+            "SizeBytes": 11634,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/TextMesh Pro/Shaders/TMP_SDF.shader",
+            "SizeBytes": 11027,
+            "TypeName": "Shader",
+            "Category": "Shaders",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Toggle.cs",
+            "SizeBytes": 10808,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Kor.Png",
+            "SizeBytes": 10658,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Models/Meshes/Room.asset",
+            "SizeBytes": 10337,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Character/Character_ss_Sample01.png",
+            "SizeBytes": 10193,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Outline.png",
+            "SizeBytes": 10076,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Icon_ItemIcons/256/Itemicon_Leaderboard.Png",
+            "SizeBytes": 9721,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/LayoutElement.cs",
+            "SizeBytes": 9172,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Deco_Trumpet1.png",
+            "SizeBytes": 9064,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Models/Meshes/Right_Side.asset",
+            "SizeBytes": 9060,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Models/Meshes/Middle.asset",
+            "SizeBytes": 8814,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Deco_Trumpet4.png",
+            "SizeBytes": 8619,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Brz.Png",
+            "SizeBytes": 8373,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Models/Meshes/Left_Side.asset",
+            "SizeBytes": 8331,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_RankIcon_Star01_l.png",
+            "SizeBytes": 8231,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/SettingsPanel.cs",
+            "SizeBytes": 8045,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_ColorIcon_Trophy02_l.png",
+            "SizeBytes": 7954,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Ribbon.png",
+            "SizeBytes": 7853,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/TextMesh Pro/Fonts/ComicRelief-Bold SDF.asset",
+            "SizeBytes": 7736,
+            "TypeName": "TMP_FontAsset",
+            "Category": "Fonts",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Deco_Trumpet2.png",
+            "SizeBytes": 7706,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/ImageGroup_Victory_Deco_Trumpet3.png",
+            "SizeBytes": 7495,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.localization/Runtime/Component Localizers/LocalizeStringEvent.cs",
+            "SizeBytes": 7347,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Joystick Pack/Prefabs/Floating Joystick.prefab",
+            "SizeBytes": 7345,
+            "TypeName": "GameObject",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Character/Character_ss_Sample04.png",
+            "SizeBytes": 7335,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Models/Meshes/Ramp.asset",
+            "SizeBytes": 7166,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Character/Character_ss_Sample03.png",
+            "SizeBytes": 6803,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Mask.cs",
+            "SizeBytes": 6786,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_RankIcon_Star01_m.png",
+            "SizeBytes": 6786,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_GroupIcon_Medal_Bronze.png",
+            "SizeBytes": 6437,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Button.cs",
+            "SizeBytes": 6385,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_s_00_Kor.png",
+            "SizeBytes": 6275,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_GroupIcon_Medal_Silver.png",
+            "SizeBytes": 6267,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Status_Icon_Common_Coin.png",
+            "SizeBytes": 6255,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/IconGroup_MenuIcon04_eatrh.png",
+            "SizeBytes": 6200,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Art/Haystack/Straw.mesh",
+            "SizeBytes": 6157,
+            "TypeName": "Mesh",
+            "Category": "Meshes",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/IconGroup_MenuIcon04_map.png",
+            "SizeBytes": 5919,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Eng.Png",
+            "SizeBytes": 5871,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_ColorIcon_Timer.png",
+            "SizeBytes": 5851,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_GroupIcon_Medal_Gold.png",
+            "SizeBytes": 5694,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_RankIcon_Star01_s.png",
+            "SizeBytes": 5492,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/LanguagePanel.cs",
+            "SizeBytes": 5414,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_s_00_Eng.png",
+            "SizeBytes": 5337,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_s_00_Brz.png",
+            "SizeBytes": 5207,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/RewardedAdController.cs",
+            "SizeBytes": 5198,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/IconGroup_MenuIcon04_friends.png",
+            "SizeBytes": 5127,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/UiConfetti.cs",
+            "SizeBytes": 4712,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/InterstitialAdController.cs",
+            "SizeBytes": 4625,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_MenuButton_Rectangle03_Purple.png",
+            "SizeBytes": 4549,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/ContentSizeFitter.cs",
+            "SizeBytes": 4511,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/VertexModifiers/Shadow.cs",
+            "SizeBytes": 4385,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Tur.Png",
+            "SizeBytes": 4374,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Cze.Png",
+            "SizeBytes": 4096,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Custom/BasicFrame_CircleLine_155_White2.png",
+            "SizeBytes": 4092,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Chn.Png",
+            "SizeBytes": 3981,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Prt.Png",
+            "SizeBytes": 3919,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_CircleGlow_White.png",
+            "SizeBytes": 3838,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/LeaderboardPanel.cs",
+            "SizeBytes": 3703,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Ind.Png",
+            "SizeBytes": 3676,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/TouchLookInput.cs",
+            "SizeBytes": 3609,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Toggle_Radio_On.png",
+            "SizeBytes": 3565,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/Haystack/HaystackGrabInput.cs",
+            "SizeBytes": 3543,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Jpn.Png",
+            "SizeBytes": 3506,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Toggle_Radio_Off_LIght.png",
+            "SizeBytes": 3466,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Setting_l.png",
+            "SizeBytes": 3279,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Joystick Pack/Sprites/Handles/Handle_Plain.png",
+            "SizeBytes": 3178,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_00_Frame_Focus.png",
+            "SizeBytes": 3159,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Status_Icon_Common_Gem.png",
+            "SizeBytes": 3149,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Icon_PictoIcons/128/PictoIcon_Hand.Png",
+            "SizeBytes": 2896,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Popup/Popup_Demo_Light/Popup02_Frame2.png",
+            "SizeBytes": 2826,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/DailyStamp_s_White1.png",
+            "SizeBytes": 2825,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/HaystackMobileControls.cs",
+            "SizeBytes": 2746,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Status_Icon_Common_Life.png",
+            "SizeBytes": 2712,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Icon_PictoIcons/128/PictoIcon_Ad_1.Png",
+            "SizeBytes": 2647,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/Haystack/HaystackNeedleHud.cs",
+            "SizeBytes": 2577,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_s_00_Chn.png",
+            "SizeBytes": 2559,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle00_n_Red.png",
+            "SizeBytes": 2552,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Esp.Png",
+            "SizeBytes": 2523,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Light/TableFrame06.png",
+            "SizeBytes": 2501,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle00_n_Blue.png",
+            "SizeBytes": 2496,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle00_n_Yellow.png",
+            "SizeBytes": 2493,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/VictoryPanel.cs",
+            "SizeBytes": 2379,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Light/ListFrame03_n_Brown.png",
+            "SizeBytes": 2363,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Materials/M_Charcoal.mat",
+            "SizeBytes": 2362,
+            "TypeName": "Material",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Light/ListFrame03_n_Yellow.png",
+            "SizeBytes": 2362,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Light/ListFrame03_n_Blue.png",
+            "SizeBytes": 2315,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle00_n_Mint.png",
+            "SizeBytes": 2295,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Swe.Png",
+            "SizeBytes": 2294,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Gre.Png",
+            "SizeBytes": 2286,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle00_n_Orange.png",
+            "SizeBytes": 2281,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Light/ListFrame03_n_Gray.png",
+            "SizeBytes": 2266,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Ita.Png",
+            "SizeBytes": 2248,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Fra.Png",
+            "SizeBytes": 2229,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Shared Assets/Materials/M_Red.mat",
+            "SizeBytes": 2223,
+            "TypeName": "Material",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Art/Haystack/Needle.mat",
+            "SizeBytes": 2215,
+            "TypeName": "Material",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Art/Haystack/Straw.mat",
+            "SizeBytes": 2211,
+            "TypeName": "Material",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Light/BasicFrame_Circle_129.png",
+            "SizeBytes": 2181,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Popup/Popup_Demo_Light/Popup02_Frame1.png",
+            "SizeBytes": 2170,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Popup/Popup_Demo_Light/Popup00_Frame1.png",
+            "SizeBytes": 2158,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle01.png",
+            "SizeBytes": 2158,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_s_00_Ind.png",
+            "SizeBytes": 2130,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Examples/First Person/Scripts/FirstPersonCharacter.cs",
+            "SizeBytes": 2128,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Tha.Png",
+            "SizeBytes": 2106,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Rus.Png",
+            "SizeBytes": 2053,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Pol.Png",
+            "SizeBytes": 2048,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_l_Deu.Png",
+            "SizeBytes": 2042,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle03_Green.png",
+            "SizeBytes": 2041,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Common/BasicFrame_Circle_116_Sky.png",
+            "SizeBytes": 1994,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Common/BasicFrame_Circle_116_Brown.png",
+            "SizeBytes": 1983,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Common/BasicFrame_Circle_116_Red.png",
+            "SizeBytes": 1981,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Common/BasicFrame_Circle_116_Blue.png",
+            "SizeBytes": 1980,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Common/Btn_Rectangle03_Blue2.png",
+            "SizeBytes": 1980,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Common/BasicFrame_Circle_116_Green1.png",
+            "SizeBytes": 1980,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/Haystack/HaystackPreset.cs",
+            "SizeBytes": 1946,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/LeaderboardItem.cs",
+            "SizeBytes": 1864,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Light/Btn_IconButton_Circle_105.png",
+            "SizeBytes": 1819,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Light/Btn_IconButton_Circle_90.png",
+            "SizeBytes": 1775,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Arrow_Continue.png",
+            "SizeBytes": 1759,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Toggle_Switch_Frame_On.png",
+            "SizeBytes": 1750,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_8.png",
+            "SizeBytes": 1721,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_9.png",
+            "SizeBytes": 1688,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Examples/First Person/Scripts/FirstPersonCharacterInput.cs",
+            "SizeBytes": 1600,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Light/Btn_MenuButton_Rectangle00_s.png",
+            "SizeBytes": 1477,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Dark/TableFrame08.png",
+            "SizeBytes": 1421,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Button/Button_Demo_Light/Btn_MenuButton_Rectangle00_n.png",
+            "SizeBytes": 1409,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.localization/Editor/Icons/Localize String Component/LocalizeStringComponent.png",
+            "SizeBytes": 1404,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/BackgroundMusicPlayer.cs",
+            "SizeBytes": 1349,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Sound.png",
+            "SizeBytes": 1343,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/ECM2/v1.4/Examples/First Person/Scripts/FirstPersonCharacterLookInput.cs",
+            "SizeBytes": 1324,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Slider/Slider_Demo_Light/Slider15_Handle_Off.png",
+            "SizeBytes": 1319,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Slider/Slider_Demo_Light/Slider15_Handle_On.png",
+            "SizeBytes": 1318,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/HorizontalLayoutGroup.cs",
+            "SizeBytes": 1289,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Custom/BasicFrame_Circle_80_White.png",
+            "SizeBytes": 1280,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/VerticalLayoutGroup.cs",
+            "SizeBytes": 1270,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Status_ButtonFrame_Light_Gray.png",
+            "SizeBytes": 1209,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Toggle_Switch_Handle.png",
+            "SizeBytes": 1203,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_CountryFlag/Language_Flag_s_00_Rou.png",
+            "SizeBytes": 1055,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Scripts/UI/JoystickMoveInput.cs",
+            "SizeBytes": 1049,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_11.png",
+            "SizeBytes": 1016,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Music.png",
+            "SizeBytes": 1000,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Home.png",
+            "SizeBytes": 997,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Common/BasicFrame_RectangleSlant02.png",
+            "SizeBytes": 985,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Close.png",
+            "SizeBytes": 979,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/icon_WhiteIcon_Graphic.png",
+            "SizeBytes": 960,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Status_Frame_Light.png",
+            "SizeBytes": 951,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Popup/Popup_Demo_Light/Popup00_Frame2.png",
+            "SizeBytes": 946,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_3.png",
+            "SizeBytes": 944,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Alarm.png",
+            "SizeBytes": 938,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_1.png",
+            "SizeBytes": 928,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_2.png",
+            "SizeBytes": 926,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Icon/Icon_WhiteIcon_Arrow_Back.png",
+            "SizeBytes": 919,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_4.png",
+            "SizeBytes": 901,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_12.png",
+            "SizeBytes": 877,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_10.png",
+            "SizeBytes": 838,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_7.png",
+            "SizeBytes": 815,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_6.png",
+            "SizeBytes": 804,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Effect_Rainbow_5.png",
+            "SizeBytes": 801,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs",
+            "SizeBytes": 720,
+            "TypeName": "MonoScript",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Slider/Slider_Demo_Light/Slider15_Frame_On.png",
+            "SizeBytes": 596,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Slider/Slider_Demo_Light/Slider15_Frame_Off.png",
+            "SizeBytes": 584,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Data/Haystack/Presets/Expert.asset",
+            "SizeBytes": 527,
+            "TypeName": "HaystackPreset",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Data/Haystack/Presets/Medium.asset",
+            "SizeBytes": 524,
+            "TypeName": "HaystackPreset",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Data/Haystack/Presets/Easy.asset",
+            "SizeBytes": 522,
+            "TypeName": "HaystackPreset",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Data/Haystack/Presets/Hard.asset",
+            "SizeBytes": 521,
+            "TypeName": "HaystackPreset",
+            "Category": "Other",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Notify_Point_Red.png",
+            "SizeBytes": 390,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/UI_Etc/Status_ButtonIcon_Light_Gray.png",
+            "SizeBytes": 262,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Demo/Demo_Image/Image_Glow_Bottom.png",
+            "SizeBytes": 232,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Frame/Frame_Demo_Light/LineFrame.png",
+            "SizeBytes": 178,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        },
+        {
+            "Path": "Assets/Layer Lab/GUI Pro-SimpleCasual/ResourcesData/Sprites/Components/Slider/Slider_Demo_Light/Slider15_Fill.png",
+            "SizeBytes": 104,
+            "TypeName": "Texture2D",
+            "Category": "Textures",
+            "IsSizeEstimated": true
+        }
+    ]
+}

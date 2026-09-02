@@ -370,7 +370,8 @@ namespace Needle.Haystack
             int guard = _runtimeCount;
             while (discarded < count && guard-- > 0)
             {
-                int marked = HaystackDiscard.MarkExposed(_runtimeFlags, _runtimeCount, count - discarded);
+                int marked = HaystackDiscard.MarkExposed(
+                    _runtimeFlags, _runtimeMatrices, _runtimeCount, count - discarded);
                 if (marked <= 0)
                     break;
 

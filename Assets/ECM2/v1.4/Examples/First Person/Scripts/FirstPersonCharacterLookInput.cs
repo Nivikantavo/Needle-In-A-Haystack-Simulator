@@ -26,13 +26,11 @@ namespace ECM2.Examples.FirstPerson
             _character = GetComponent<FirstPersonCharacter>();
         }
 
-        private void Start()
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
         private void Update()
         {
+            if (_character == null)
+                return;
+
             Vector2 lookInput = new Vector2
             {
                 x = Input.GetAxisRaw("Mouse X"),

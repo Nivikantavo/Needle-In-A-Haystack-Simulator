@@ -79,7 +79,42 @@ function completeProgressBarFilling() {
     }, 500)
 }
 
+;(function installPointerLockGuard() {
+    const original = HTMLElement.prototype.requestPointerLock
+    if (typeof original !== 'function') {
+        return
+    }
+
+    HTMLElement.prototype.requestPointerLock = function () {
+        let result
+        try {
+            result = original.apply(this, arguments)
+        } catch (error) {
+            if (error && error.name === 'SecurityError') {
+                return Promise.resolve()
+            }
+            throw error
+        }
+
+        if (result && typeof result.catch === 'function') {
+            return result.catch(function (error) {
+                if (error && error.name === 'SecurityError') {
+                    return
+                }
+                throw error
+            })
+        }
+
+        return result
+    }
+
+    document.addEventListener('pointerlockerror', function () {})
+})()
+
 window.addEventListener('pointerdown', () => {
+    if (document.pointerLockElement) {
+        return
+    }
     window.focus()
     CANVAS.focus()
 })

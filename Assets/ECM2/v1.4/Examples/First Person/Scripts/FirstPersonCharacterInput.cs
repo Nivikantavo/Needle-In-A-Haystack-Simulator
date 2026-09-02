@@ -17,6 +17,9 @@ namespace ECM2.Examples.FirstPerson
 
         private void Update()
         {
+            if (_character == null)
+                return;
+
             // Movement input, relative to character's view direction
             
             Vector2 inputMove = new Vector2()

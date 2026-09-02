@@ -599,7 +599,7 @@ namespace Needle.UI
 
         void SetGameplayEnabled(bool enabled)
         {
-            if (_character != null)
+            if (CanPauseCharacter())
                 _character.Pause(!enabled);
             if (_grabInput != null)
             {
@@ -697,6 +697,13 @@ namespace Needle.UI
             RectTransform rect = _homeButton.transform as RectTransform;
             return rect != null &&
                    RectTransformUtility.RectangleContainsScreenPoint(rect, Input.mousePosition, null);
+        }
+
+        bool CanPauseCharacter()
+        {
+            return _character != null &&
+                   _character.characterMovement != null &&
+                   _character.characterMovement.collider != null;
         }
 
         static void ApplyCursorLock(bool locked)

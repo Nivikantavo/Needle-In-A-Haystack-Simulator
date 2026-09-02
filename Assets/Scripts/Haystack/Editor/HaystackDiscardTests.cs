@@ -10,14 +10,36 @@ namespace Needle.Haystack.Editor.Tests
         public void MarkExposed_TakesRequestedCount()
         {
             var flags = new byte[] { 0, 0, 0, 0 };
+            Matrix4x4[] matrices = IdentityMatrices(flags.Length);
 
-            int marked = HaystackDiscard.MarkExposed(flags, flags.Length, 2);
+            int marked = HaystackDiscard.MarkExposed(flags, matrices, flags.Length, 2);
 
             Assert.AreEqual(2, marked);
             Assert.AreEqual((byte)StrawFlags.Discarded, flags[0]);
             Assert.AreEqual((byte)StrawFlags.Discarded, flags[1]);
             Assert.AreEqual(0, flags[2]);
             Assert.AreEqual(0, flags[3]);
+        }
+
+        [Test]
+        public void MarkExposed_TakesHighestYFirst()
+        {
+            var flags = new byte[] { 0, 0, 0, 0 };
+            var matrices = new[]
+            {
+                AtY(0.1f),
+                AtY(1.4f),
+                AtY(0.6f),
+                AtY(2.2f)
+            };
+
+            int marked = HaystackDiscard.MarkExposed(flags, matrices, flags.Length, 2);
+
+            Assert.AreEqual(2, marked);
+            Assert.AreEqual(0, flags[0]);
+            Assert.AreEqual((byte)StrawFlags.Discarded, flags[1]);
+            Assert.AreEqual(0, flags[2]);
+            Assert.AreEqual((byte)StrawFlags.Discarded, flags[3]);
         }
 
         [Test]
@@ -31,8 +53,9 @@ namespace Needle.Haystack.Editor.Tests
                 (byte)StrawFlags.IsNeedle,
                 (byte)0
             };
+            Matrix4x4[] matrices = IdentityMatrices(flags.Length);
 
-            int marked = HaystackDiscard.MarkExposed(flags, flags.Length, 8);
+            int marked = HaystackDiscard.MarkExposed(flags, matrices, flags.Length, 8);
 
             Assert.AreEqual(1, marked);
             Assert.AreEqual((byte)StrawFlags.Buried, flags[0]);
@@ -70,13 +93,13 @@ namespace Needle.Haystack.Editor.Tests
             mask.Apply(HaystackShape.Cylinder, 4f, 2.2f, matrices, flags, count, 0.25f);
             Assert.Greater(mask.BuriedCount, 0);
 
-            int first = HaystackDiscard.MarkExposed(flags, count, count);
+            int first = HaystackDiscard.MarkExposed(flags, matrices, count, count);
             Assert.AreEqual(mask.ExposedCount, first);
 
             mask.Apply(HaystackShape.Cylinder, 4f, 2.2f, matrices, flags, count, 0.25f);
             Assert.Greater(mask.ExposedCount, 0);
 
-            int second = HaystackDiscard.MarkExposed(flags, count, count);
+            int second = HaystackDiscard.MarkExposed(flags, matrices, count, count);
             Assert.Greater(second, 0);
             Assert.AreEqual(mask.ExposedCount, second);
         }
@@ -85,9 +108,24 @@ namespace Needle.Haystack.Editor.Tests
         public void MarkExposed_ZeroWantedOrEmpty_ReturnsZero()
         {
             var flags = new byte[] { 0, 0 };
-            Assert.AreEqual(0, HaystackDiscard.MarkExposed(flags, flags.Length, 0));
-            Assert.AreEqual(0, HaystackDiscard.MarkExposed(null, 2, 1));
-            Assert.AreEqual(0, HaystackDiscard.MarkExposed(flags, 0, 1));
+            Matrix4x4[] matrices = IdentityMatrices(flags.Length);
+            Assert.AreEqual(0, HaystackDiscard.MarkExposed(flags, matrices, flags.Length, 0));
+            Assert.AreEqual(0, HaystackDiscard.MarkExposed(null, matrices, 2, 1));
+            Assert.AreEqual(0, HaystackDiscard.MarkExposed(flags, null, 2, 1));
+            Assert.AreEqual(0, HaystackDiscard.MarkExposed(flags, matrices, 0, 1));
+        }
+
+        static Matrix4x4[] IdentityMatrices(int count)
+        {
+            var matrices = new Matrix4x4[count];
+            for (int i = 0; i < count; i++)
+                matrices[i] = Matrix4x4.identity;
+            return matrices;
+        }
+
+        static Matrix4x4 AtY(float y)
+        {
+            return Matrix4x4.TRS(new Vector3(0f, y, 0f), Quaternion.identity, Vector3.one);
         }
     }
 }
