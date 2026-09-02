@@ -1,7 +1,6 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 
 namespace Needle.UI
 {
@@ -16,9 +15,11 @@ namespace Needle.UI
 
         readonly InterstitialAdSchedule _schedule = new InterstitialAdSchedule();
         readonly PlaygamaAdvertisementService _ads = new PlaygamaAdvertisementService();
+        LocalizedStringWatcher _prefix;
         bool _sessionActive;
         bool _waitingForAd;
         bool _eventsBound;
+        int _countdownSeconds;
 
         public event Action PauseRequested;
         public event Action ResumeRequested;
@@ -29,6 +30,15 @@ namespace Needle.UI
                 localizedPrefix = LocalizationKey;
 
             return $"{localizedPrefix} {seconds}";
+        }
+
+        void Awake()
+        {
+            _prefix = new LocalizedStringWatcher(
+                LocalizationTable,
+                LocalizationKey,
+                LocalizationKey,
+                RefreshCountdownIfVisible);
         }
 
         public void StartSession()
@@ -69,6 +79,8 @@ namespace Needle.UI
         void OnDestroy()
         {
             StopSession();
+            _prefix?.Dispose();
+            _prefix = null;
         }
 
         void BindEvents()
@@ -95,6 +107,20 @@ namespace Needle.UI
 
         void OnCountdownChanged(int seconds)
         {
+            _countdownSeconds = seconds;
+            ShowCountdown();
+        }
+
+        void RefreshCountdownIfVisible()
+        {
+            if (!_sessionActive || !gameObject.activeSelf)
+                return;
+
+            ShowCountdown();
+        }
+
+        void ShowCountdown()
+        {
             if (!_sessionActive)
                 return;
 
@@ -104,7 +130,8 @@ namespace Needle.UI
             if (!gameObject.activeSelf)
                 gameObject.SetActive(true);
 
-            _label.text = FormatCountdown(GetLocalizedPrefix(), seconds);
+            string prefix = _prefix != null ? _prefix.Value : LocalizationKey;
+            _label.text = FormatCountdown(prefix, _countdownSeconds);
         }
 
         void OnShowRequested()
@@ -135,14 +162,6 @@ namespace Needle.UI
         {
             if (gameObject.activeSelf)
                 gameObject.SetActive(false);
-        }
-
-        static string GetLocalizedPrefix()
-        {
-            string value = LocalizationSettings.StringDatabase.GetLocalizedString(
-                LocalizationTable,
-                LocalizationKey);
-            return string.IsNullOrEmpty(value) ? LocalizationKey : value;
         }
     }
 }

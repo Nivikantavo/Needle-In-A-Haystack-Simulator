@@ -21,6 +21,8 @@ namespace Needle.UI
 
         public event Action<string> Changed;
 
+        public event Action Ready;
+
         public void LoadAndApply()
         {
             AsyncOperationHandle<LocalizationSettings> handle = LocalizationSettings.InitializationOperation;
@@ -34,6 +36,20 @@ namespace Needle.UI
         }
 
         public void Apply(string localeCode)
+        {
+            ApplyInternal(localeCode, true);
+        }
+
+        void ApplyDetectedOrSaved()
+        {
+            string saved = PlayerPrefs.HasKey(PrefsKey) ? PlayerPrefs.GetString(PrefsKey) : null;
+            string platform = _platformLanguage.Language;
+            bool persist = !string.IsNullOrWhiteSpace(saved) || !string.IsNullOrWhiteSpace(platform);
+            ApplyInternal(LocaleCodeResolver.ResolveInitial(saved, platform, GetAvailableCodes()), persist);
+            Ready?.Invoke();
+        }
+
+        void ApplyInternal(string localeCode, bool persist)
         {
             if (string.IsNullOrWhiteSpace(localeCode))
             {
@@ -50,16 +66,13 @@ namespace Needle.UI
 
             LocalizationSettings.SelectedLocale = locale;
             CurrentCode = locale.Identifier.Code;
-            PlayerPrefs.SetString(PrefsKey, CurrentCode);
-            PlayerPrefs.Save();
-            Changed?.Invoke(CurrentCode);
-        }
+            if (persist)
+            {
+                PlayerPrefs.SetString(PrefsKey, CurrentCode);
+                PlayerPrefs.Save();
+            }
 
-        void ApplyDetectedOrSaved()
-        {
-            string saved = PlayerPrefs.HasKey(PrefsKey) ? PlayerPrefs.GetString(PrefsKey) : null;
-            string platform = _platformLanguage.Language;
-            Apply(LocaleCodeResolver.ResolveInitial(saved, platform, GetAvailableCodes()));
+            Changed?.Invoke(CurrentCode);
         }
 
         static string[] GetAvailableCodes()

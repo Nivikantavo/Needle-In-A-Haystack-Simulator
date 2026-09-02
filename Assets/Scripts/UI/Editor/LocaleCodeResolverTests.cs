@@ -19,6 +19,24 @@ namespace Needle.UI.Editor.Tests
         }
 
         [Test]
+        public void Resolve_CisLanguages_FallBackToRussian()
+        {
+            Assert.AreEqual("ru", LocaleCodeResolver.Resolve("be", Available));
+            Assert.AreEqual("ru", LocaleCodeResolver.Resolve("kk", Available));
+            Assert.AreEqual("ru", LocaleCodeResolver.Resolve("uk", Available));
+            Assert.AreEqual("ru", LocaleCodeResolver.Resolve("uz", Available));
+            Assert.AreEqual("ru", LocaleCodeResolver.Resolve("be-BY", Available));
+            Assert.AreEqual("ru", LocaleCodeResolver.Resolve("UK", Available));
+        }
+
+        [Test]
+        public void Resolve_CisLanguageWithoutRussian_FallsBackToEnglish()
+        {
+            string[] withoutRussian = { "en", "de", "fr" };
+            Assert.AreEqual("en", LocaleCodeResolver.Resolve("uk", withoutRussian));
+        }
+
+        [Test]
         public void Resolve_EmptyPlatformLanguage_FallsBackToEnglish()
         {
             Assert.AreEqual("en", LocaleCodeResolver.Resolve(null, Available));
@@ -55,6 +73,12 @@ namespace Needle.UI.Editor.Tests
         {
             Assert.AreEqual("de", LocaleCodeResolver.ResolveInitial("ja", "de", Available));
             Assert.AreEqual("en", LocaleCodeResolver.ResolveInitial("ja", "zh", Available));
+        }
+
+        [Test]
+        public void ResolveInitial_InvalidSaved_CisPlatform_UsesRussian()
+        {
+            Assert.AreEqual("ru", LocaleCodeResolver.ResolveInitial("ja", "kk", Available));
         }
     }
 }

@@ -6,7 +6,6 @@ using Needle.Haystack;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Needle.UI
@@ -58,30 +57,39 @@ namespace Needle.UI
         readonly AudioSettingsService _audioSettings = new AudioSettingsService();
         readonly PlaygamaDeviceService _device = new PlaygamaDeviceService();
         readonly LocaleSettingsService _localeSettings = new LocaleSettingsService();
+        readonly PlaygamaPlatformLifecycle _platformLifecycle = new PlaygamaPlatformLifecycle();
         readonly TimeAttackClock _clock = new TimeAttackClock();
         readonly TimeAttackRecordService _records = new TimeAttackRecordService();
         readonly LeaderboardEntry[] _emptyLeaderboard = System.Array.Empty<LeaderboardEntry>();
         readonly List<RaycastResult> _uiRaycastHits = new List<RaycastResult>(8);
         PointerEventData _pointerEventData;
+        LocalizedStringWatcher _timeModeName;
         bool _isValid;
         bool _listenersBound;
         bool _isGameplaySession;
         bool _isPaused;
         bool _isAdPaused;
+        bool _isPlatformPaused;
         bool _isVictorySequence;
         bool _isTimedSession;
         Coroutine _victoryRoutine;
+        Coroutine _gameReadyRoutine;
         bool _usesTouchControls;
 
         bool UsesTouchControls => _usesTouchControls;
 
-        bool IsGameplayFrozen => _isPaused || _isAdPaused || _isVictorySequence;
+        bool IsGameplayFrozen => _isPaused || _isAdPaused || _isPlatformPaused || _isVictorySequence;
 
         void Awake()
         {
             _usesTouchControls = ResolveTouchControls();
             Validate();
+            _timeModeName = new LocalizedStringWatcher(
+                TimeModeLocalizationTable,
+                TimeModeLocalizationKey,
+                TimeModeLocalizationKey);
             _audioSettings.LoadAndApply();
+            _localeSettings.Ready += OnLocaleReady;
             _localeSettings.LoadAndApply();
             DisableUnimplementedModes();
             ConstructPanels();
@@ -92,6 +100,19 @@ namespace Needle.UI
         {
             if (!_isGameplaySession)
                 ReturnToMenu();
+        }
+
+        void OnDestroy()
+        {
+            _localeSettings.Ready -= OnLocaleReady;
+            if (_gameReadyRoutine != null)
+            {
+                StopCoroutine(_gameReadyRoutine);
+                _gameReadyRoutine = null;
+            }
+
+            _timeModeName?.Dispose();
+            _timeModeName = null;
         }
 
         void Update()
@@ -200,6 +221,7 @@ namespace Needle.UI
             }
 
             BindPlatformAudio();
+            BindPlatformPause();
             _listenersBound = true;
         }
 
@@ -254,6 +276,7 @@ namespace Needle.UI
             }
 
             UnbindPlatformAudio();
+            UnbindPlatformPause();
             _listenersBound = false;
         }
 
@@ -299,10 +322,8 @@ namespace Needle.UI
                 return;
 
             _isPaused = true;
-            if (_interstitialAds != null)
-                _interstitialAds.SetFrozen(true);
-            SetGameplayEnabled(false);
-            SetHomeButtonVisible(false);
+            FreezeGameplayForInterrupt();
+            _platformLifecycle.NotifyLevelPaused();
             _settingsPanel.Open(true);
         }
 
@@ -339,6 +360,7 @@ namespace Needle.UI
                 _interstitialAds.StartSession();
             if (_rewardedAds != null)
                 _rewardedAds.StartSession();
+            _platformLifecycle.NotifyLevelStarted();
         }
 
         void BeginTimedClock(bool timed)
@@ -374,6 +396,7 @@ namespace Needle.UI
                 _interstitialAds.StopSession();
             if (_rewardedAds != null)
                 _rewardedAds.StopSession();
+            _platformLifecycle.NotifyLevelCompleted();
             _victoryRoutine = StartCoroutine(PlayVictorySequence());
         }
 
@@ -410,14 +433,7 @@ namespace Needle.UI
                 return;
 
             _isPaused = false;
-            if (_interstitialAds != null)
-                _interstitialAds.SetFrozen(false);
-
-            if (_isAdPaused)
-                return;
-
-            SetGameplayEnabled(true);
-            SetHomeButtonVisible(true);
+            TryResumeGameplayAfterInterrupt();
         }
 
         void OnAdPauseRequested()
@@ -426,10 +442,9 @@ namespace Needle.UI
                 return;
 
             _isAdPaused = true;
-            if (_interstitialAds != null)
-                _interstitialAds.SetFrozen(true);
-            SetGameplayEnabled(false);
-            SetHomeButtonVisible(false);
+            _audioSettings.SetAdAudioSuppressed(true);
+            FreezeGameplayForInterrupt();
+            _platformLifecycle.NotifyLevelPaused();
         }
 
         void OnAdResumeRequested()
@@ -438,14 +453,8 @@ namespace Needle.UI
                 return;
 
             _isAdPaused = false;
-            if (_isPaused)
-                return;
-
-            if (_interstitialAds != null)
-                _interstitialAds.SetFrozen(false);
-
-            SetGameplayEnabled(true);
-            SetHomeButtonVisible(true);
+            _audioSettings.SetAdAudioSuppressed(false);
+            TryResumeGameplayAfterInterrupt();
         }
 
         void OnSettingsExitRequested()
@@ -456,9 +465,12 @@ namespace Needle.UI
         void ReturnToMenu()
         {
             StopVictoryRoutine();
+            _platformLifecycle.NotifyLevelCompleted();
             _isGameplaySession = false;
             _isPaused = false;
             _isAdPaused = false;
+            _isPlatformPaused = false;
+            _audioSettings.SetAdAudioSuppressed(false);
             _isVictorySequence = false;
             _isTimedSession = false;
             _clock.Reset();
@@ -538,12 +550,51 @@ namespace Needle.UI
             return new LeaderboardEntry(1, GetTimeModeDisplayName(), TimeAttackClock.Format(best), null);
         }
 
-        static string GetTimeModeDisplayName()
+        string GetTimeModeDisplayName()
         {
-            string value = LocalizationSettings.StringDatabase.GetLocalizedString(
-                TimeModeLocalizationTable,
-                TimeModeLocalizationKey);
-            return string.IsNullOrEmpty(value) ? TimeModeLocalizationKey : value;
+            if (_timeModeName == null || string.IsNullOrEmpty(_timeModeName.Value))
+                return TimeModeLocalizationKey;
+
+            return _timeModeName.Value;
+        }
+
+        void FreezeGameplayForInterrupt()
+        {
+            if (_interstitialAds != null)
+                _interstitialAds.SetFrozen(true);
+            SetGameplayEnabled(false);
+            SetHomeButtonVisible(false);
+        }
+
+        void TryResumeGameplayAfterInterrupt()
+        {
+            if (!_isGameplaySession || _isVictorySequence)
+                return;
+
+            if (_isPaused || _isAdPaused || _isPlatformPaused)
+                return;
+
+            if (_interstitialAds != null)
+                _interstitialAds.SetFrozen(false);
+
+            SetGameplayEnabled(true);
+            SetHomeButtonVisible(true);
+            _platformLifecycle.NotifyLevelResumed();
+        }
+
+        void OnLocaleReady()
+        {
+            if (_gameReadyRoutine != null)
+                StopCoroutine(_gameReadyRoutine);
+
+            _gameReadyRoutine = StartCoroutine(NotifyGameReadyNextFrame());
+        }
+
+        IEnumerator NotifyGameReadyNextFrame()
+        {
+            yield return null;
+            _platformLifecycle.NotifyGameReady();
+            _gameReadyRoutine = null;
         }
 
         void SetGameplayEnabled(bool enabled)
@@ -680,11 +731,68 @@ namespace Needle.UI
 #endif
         }
 
+        void BindPlatformPause()
+        {
+#if UNITY_WEBGL
+            if (Playgama.Bridge.platform == null)
+                return;
+
+            Playgama.Bridge.platform.pauseStateChanged += OnPlatformPauseChanged;
+#endif
+        }
+
+        void UnbindPlatformPause()
+        {
+#if UNITY_WEBGL
+            if (Playgama.Bridge.platform == null)
+                return;
+
+            Playgama.Bridge.platform.pauseStateChanged -= OnPlatformPauseChanged;
+#endif
+        }
+
 #if UNITY_WEBGL
         void OnPlatformAudioChanged(bool enabled)
         {
             _audioSettings.SetPlatformAudioEnabled(enabled);
         }
+
+        void OnPlatformPauseChanged(bool paused)
+        {
+            if (paused)
+                OnPlatformPauseRequested();
+            else
+                OnPlatformResumeRequested();
+        }
 #endif
+
+        void OnApplicationFocus(bool hasFocus)
+        {
+            _audioSettings.SetHasFocus(hasFocus);
+        }
+
+        void OnApplicationPause(bool paused)
+        {
+            if (paused)
+                _audioSettings.SetHasFocus(false);
+        }
+
+        void OnPlatformPauseRequested()
+        {
+            _isPlatformPaused = true;
+            _audioSettings.SetPlatformPaused(true);
+            if (!_isGameplaySession || _isVictorySequence)
+                return;
+
+            FreezeGameplayForInterrupt();
+            _platformLifecycle.NotifyLevelPaused();
+        }
+
+        void OnPlatformResumeRequested()
+        {
+            _isPlatformPaused = false;
+            _audioSettings.SetPlatformPaused(false);
+            TryResumeGameplayAfterInterrupt();
+        }
     }
 }

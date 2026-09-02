@@ -5,6 +5,9 @@ namespace Needle.UI
     public static class LocaleCodeResolver
     {
         public const string FallbackCode = "en";
+        public const string CisFallbackCode = "ru";
+
+        static readonly string[] CisFallbackLanguages = { "be", "kk", "uk", "uz" };
 
         public static string ResolveInitial(string savedCode, string platformCode, string[] availableCodes)
         {
@@ -18,6 +21,9 @@ namespace Needle.UI
         {
             if (TryMatch(requestedCode, availableCodes, out string match))
                 return match;
+
+            if (TryCisRussianFallback(requestedCode, availableCodes, out string russian))
+                return russian;
 
             if (TryMatch(FallbackCode, availableCodes, out string fallback))
                 return fallback;
@@ -49,6 +55,30 @@ namespace Needle.UI
                 return false;
 
             return TryExact(language, availableCodes, out matched);
+        }
+
+        static bool TryCisRussianFallback(string requestedCode, string[] availableCodes, out string matched)
+        {
+            matched = null;
+            if (string.IsNullOrWhiteSpace(requestedCode))
+                return false;
+
+            string language = LanguagePart(requestedCode.Trim());
+            if (!IsCisFallbackLanguage(language))
+                return false;
+
+            return TryMatch(CisFallbackCode, availableCodes, out matched);
+        }
+
+        static bool IsCisFallbackLanguage(string language)
+        {
+            for (int i = 0; i < CisFallbackLanguages.Length; i++)
+            {
+                if (string.Equals(language, CisFallbackLanguages[i], StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+
+            return false;
         }
 
         static bool TryExact(string requested, string[] availableCodes, out string matched)

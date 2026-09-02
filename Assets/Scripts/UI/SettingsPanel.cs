@@ -198,6 +198,7 @@ namespace Needle.UI
             }
 
             _audioSettings.ToggleMuted();
+            SyncAudioWidgets();
         }
 
         void OnVolumeChanged(float value)
@@ -212,8 +213,6 @@ namespace Needle.UI
             }
 
             _audioSettings.SetVolume(value);
-            if (_audioSettings.IsMuted && value > 0f)
-                _audioSettings.SetMuted(false);
         }
 
         void OnLocaleChanged(string _)

@@ -14,6 +14,11 @@
                 height: 100%;
                 padding: 0px;
                 margin: 0px;
+                overflow: hidden;
+                overscroll-behavior: none;
+                -webkit-user-select: none;
+                user-select: none;
+                -webkit-touch-callout: none;
             }
             .fullscreen-canvas {
                 background: #242424;
@@ -27,6 +32,17 @@
     </head>
     <body>
         <canvas id="canvas" class="fullscreen-canvas"></canvas>
+        <script>
+            document.addEventListener('contextmenu', function (event) {
+                event.preventDefault();
+            });
+            var canvas = document.getElementById('canvas');
+            if (canvas) {
+                canvas.addEventListener('contextmenu', function (event) {
+                    event.preventDefault();
+                });
+            }
+        </script>
         <script src="./playgama-bridge-unity.js"></script>
     </body>
 </html>

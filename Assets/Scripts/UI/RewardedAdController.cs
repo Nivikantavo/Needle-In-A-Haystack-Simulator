@@ -2,8 +2,6 @@ using System;
 using Needle.Haystack;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Needle.UI
@@ -22,6 +20,7 @@ namespace Needle.UI
         [SerializeField, Min(1)] int _strawRewardCount = 200;
 
         readonly PlaygamaAdvertisementService _ads = new PlaygamaAdvertisementService();
+        LocalizedStringWatcher _template;
         bool _sessionActive;
         bool _waitingForAd;
         bool _rewardGranted;
@@ -38,6 +37,15 @@ namespace Needle.UI
                 template = FallbackTemplate;
 
             return string.Format(template, count);
+        }
+
+        void Awake()
+        {
+            _template = new LocalizedStringWatcher(
+                LocalizationTable,
+                LocalizationKey,
+                FallbackTemplate,
+                RefreshLabel);
         }
 
         public void StartSession()
@@ -71,19 +79,19 @@ namespace Needle.UI
         {
             if (_button != null)
                 _button.onClick.AddListener(OnClicked);
-            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
 
         void OnDisable()
         {
             if (_button != null)
                 _button.onClick.RemoveListener(OnClicked);
-            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         }
 
         void OnDestroy()
         {
             StopSession();
+            _template?.Dispose();
+            _template = null;
         }
 
         void OnValidate()
@@ -165,31 +173,19 @@ namespace Needle.UI
             ResumeRequested?.Invoke();
         }
 
-        void OnLocaleChanged(Locale _)
-        {
-            RefreshLabel();
-        }
-
         void RefreshLabel()
         {
             if (!RequiredRefs.Assign(_label, nameof(_label), this))
                 return;
 
-            _label.text = FormatLabel(GetLocalizedTemplate(), StrawRewardCount);
+            string template = _template != null ? _template.Value : FallbackTemplate;
+            _label.text = FormatLabel(template, StrawRewardCount);
         }
 
         void SetButtonInteractable(bool interactable)
         {
             if (_button != null)
                 _button.interactable = interactable;
-        }
-
-        static string GetLocalizedTemplate()
-        {
-            string value = LocalizationSettings.StringDatabase.GetLocalizedString(
-                LocalizationTable,
-                LocalizationKey);
-            return string.IsNullOrEmpty(value) ? FallbackTemplate : value;
         }
     }
 }
