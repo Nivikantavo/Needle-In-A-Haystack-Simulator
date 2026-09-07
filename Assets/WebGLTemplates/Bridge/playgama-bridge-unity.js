@@ -6,15 +6,46 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 }
 
 const CANVAS = document.getElementById('canvas')
+const LOADING_OVERLAY = document.getElementById('loading-overlay')
+const HAYSTACK_FILL = document.getElementById('haystack-fill')
 const STORAGE_DATA_SEPARATOR = '{bridge_data_separator}'
 const STORAGE_KEYS_SEPARATOR = '{bridge_keys_separator}'
 const STORAGE_VALUES_SEPARATOR = '{bridge_values_separator}'
+const OVERLAY_FADE_MS = 300
 
 // utils
 window.unityInstance = null
 const messageQueue = []
 let progressBarFillingInterval = null
 let progressBarCompleteFillingStarted = false
+let overlayHidden = false
+
+function setLoadingVisual(percent) {
+    const clamped = Math.max(0, Math.min(100, percent))
+    if (HAYSTACK_FILL) {
+        HAYSTACK_FILL.style.clipPath = 'inset(' + (100 - clamped) + '% 0 0 0)'
+    }
+}
+
+function setLoadingProgress(percent) {
+    setLoadingVisual(percent)
+    if (typeof bridge !== 'undefined' && bridge && typeof bridge.setGameLoadingProgress === 'function') {
+        bridge.setGameLoadingProgress(percent)
+    }
+}
+
+function hideLoadingOverlay() {
+    if (overlayHidden || !LOADING_OVERLAY) {
+        return
+    }
+
+    overlayHidden = true
+    setLoadingVisual(100)
+    LOADING_OVERLAY.classList.add('is-hidden')
+    setTimeout(function () {
+        LOADING_OVERLAY.style.display = 'none'
+    }, OVERLAY_FADE_MS)
+}
 
 function sendMessageToUnity(name, value) {
     if (window.unityInstance !== null) {
@@ -39,7 +70,8 @@ function onUnityLoadingProgressChanged(progress) {
             clearInterval(progressBarFillingInterval)
             progressBarFillingInterval = null
         }
-        bridge.setGameLoadingProgress(100)
+        setLoadingProgress(100)
+        hideLoadingOverlay()
         return
     }
 
@@ -53,7 +85,7 @@ function onUnityLoadingProgressChanged(progress) {
         return
     }
 
-    bridge.setGameLoadingProgress(progress * 100)
+    setLoadingProgress(progress * 100)
 }
 
 function completeProgressBarFilling() {
@@ -62,14 +94,14 @@ function completeProgressBarFilling() {
     }
 
     let currentPercent = 90
-    bridge.setGameLoadingProgress(currentPercent)
+    setLoadingProgress(currentPercent)
     progressBarFillingInterval = setInterval(() => {
         currentPercent++
         if (currentPercent > 99) {
             currentPercent = 99
         }
 
-        bridge.setGameLoadingProgress(currentPercent)
+        setLoadingProgress(currentPercent)
 
         if (currentPercent >= 99) {
             clearInterval(progressBarFillingInterval)
@@ -164,7 +196,7 @@ function initializeBridge() {
     bridge
         .initialize()
         .then(() => {
-            bridge.setGameLoadingProgress(0)
+            setLoadingProgress(0)
             bridge.advertisement.on('banner_state_changed', state => sendMessageToUnity('OnBannerStateChanged', state))
             bridge.advertisement.on('interstitial_state_changed', state => sendMessageToUnity('OnInterstitialStateChanged', state))
             bridge.advertisement.on('rewarded_state_changed', state => sendMessageToUnity('OnRewardedStateChanged', state))
@@ -197,6 +229,7 @@ function initializeBridge() {
                     onUnityLoadingProgressChanged)
                     .then((unityInstance) => {
                         window.unityInstance = unityInstance
+                        hideLoadingOverlay()
                         CANVAS.focus()
                         flushMessageQueue()
                     })

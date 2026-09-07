@@ -142,6 +142,10 @@ MonoBehaviour:
     m_Localized: rimuovere {0} pezzi
     m_Metadata:
       m_Items: []
+  - m_Id: 2240664770174976
+    m_Localized: Trovare un ago in un pagliaio
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

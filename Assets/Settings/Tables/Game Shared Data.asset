@@ -15,6 +15,10 @@ MonoBehaviour:
   m_TableCollectionName: Game
   m_TableCollectionNameGuidString: 47415a6aeb58ff5498d54bbf5e9face2
   m_Entries:
+  - m_Id: 2240664770174976
+    m_Key: Find a needle in a haystack
+    m_Metadata:
+      m_Items: []
   - m_Id: 379352665612288
     m_Key: remove pieces
     m_Metadata:

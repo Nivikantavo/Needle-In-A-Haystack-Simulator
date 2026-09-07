@@ -32,6 +32,8 @@ namespace Needle.UI
         [SerializeField] Button _homeButton;
         [SerializeField] GameObject _timerHud;
         [SerializeField] TextMeshProUGUI _timerHudText;
+        [SerializeField] GameObject _taskText;
+        [SerializeField, Min(0f)] float _taskTextDuration = 10f;
         [SerializeField] InterstitialAdController _interstitialAds;
         [SerializeField] RewardedAdController _rewardedAds;
 
@@ -74,6 +76,7 @@ namespace Needle.UI
         bool _isTimedSession;
         Coroutine _victoryRoutine;
         Coroutine _gameReadyRoutine;
+        Coroutine _taskTextRoutine;
         bool _usesTouchControls;
 
         bool UsesTouchControls => _usesTouchControls;
@@ -111,6 +114,7 @@ namespace Needle.UI
                 _gameReadyRoutine = null;
             }
 
+            StopTaskTextRoutine();
             _timeModeName?.Dispose();
             _timeModeName = null;
         }
@@ -158,6 +162,7 @@ namespace Needle.UI
             _isValid &= RequiredRefs.Assign(_homeButton, nameof(_homeButton), this);
             _isValid &= RequiredRefs.Assign(_timerHud, nameof(_timerHud), this);
             _isValid &= RequiredRefs.Assign(_timerHudText, nameof(_timerHudText), this);
+            _isValid &= RequiredRefs.Assign(_taskText, nameof(_taskText), this);
             _isValid &= RequiredRefs.Assign(_interstitialAds, nameof(_interstitialAds), this);
             _isValid &= RequiredRefs.Assign(_rewardedAds, nameof(_rewardedAds), this);
             _isValid &= RequiredRefs.Assign(_settingsPanel, nameof(_settingsPanel), this);
@@ -356,6 +361,7 @@ namespace Needle.UI
             SetGameplayEnabled(true);
             SetHomeButtonVisible(true);
             BeginTimedClock(timed);
+            ShowTaskText();
             if (_interstitialAds != null)
                 _interstitialAds.StartSession();
             if (_rewardedAds != null)
@@ -405,6 +411,7 @@ namespace Needle.UI
             _isVictorySequence = true;
             _isPaused = true;
             CloseOverlays();
+            HideTaskText();
             SetGameplayEnabled(false);
             SetHomeButtonVisible(false);
 
@@ -488,6 +495,7 @@ namespace Needle.UI
             SetGameplayEnabled(false);
             SetHomeButtonVisible(false);
             SetTimerHudVisible(false);
+            HideTaskText();
         }
 
         void CloseOverlays()
@@ -521,6 +529,40 @@ namespace Needle.UI
         {
             if (_timerHud != null)
                 _timerHud.SetActive(visible);
+        }
+
+        void ShowTaskText()
+        {
+            StopTaskTextRoutine();
+            if (_taskText == null)
+                return;
+
+            _taskText.SetActive(true);
+            _taskTextRoutine = StartCoroutine(HideTaskTextAfterDelay());
+        }
+
+        void HideTaskText()
+        {
+            StopTaskTextRoutine();
+            if (_taskText != null)
+                _taskText.SetActive(false);
+        }
+
+        void StopTaskTextRoutine()
+        {
+            if (_taskTextRoutine == null)
+                return;
+
+            StopCoroutine(_taskTextRoutine);
+            _taskTextRoutine = null;
+        }
+
+        IEnumerator HideTaskTextAfterDelay()
+        {
+            yield return new WaitForSecondsRealtime(_taskTextDuration);
+            _taskTextRoutine = null;
+            if (_taskText != null)
+                _taskText.SetActive(false);
         }
 
         void RefreshTimerHud()

@@ -142,6 +142,10 @@ MonoBehaviour:
     m_Localized: "{0} par\xE7ay\u0131 kald\u0131r"
     m_Metadata:
       m_Items: []
+  - m_Id: 2240664770174976
+    m_Localized: "Samanl\u0131kta i\u011Fne aramak"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
