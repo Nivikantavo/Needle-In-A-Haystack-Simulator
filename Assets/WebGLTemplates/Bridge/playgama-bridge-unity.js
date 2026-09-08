@@ -6,12 +6,43 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 }
 
 const CANVAS = document.getElementById('canvas')
-const LOADING_OVERLAY = document.getElementById('loading-overlay')
+const LOADING_OVERLAY = document.getElementById('haystack-loading-overlay')
 const HAYSTACK_FILL = document.getElementById('haystack-fill')
 const STORAGE_DATA_SEPARATOR = '{bridge_data_separator}'
 const STORAGE_KEYS_SEPARATOR = '{bridge_keys_separator}'
 const STORAGE_VALUES_SEPARATOR = '{bridge_values_separator}'
 const OVERLAY_FADE_MS = 300
+const PLAYGAMA_OVERLAY_ID = 'loading-overlay'
+
+function isPlaygamaLoadingOverlay(node) {
+    return node && node.nodeType === 1 && node.id === PLAYGAMA_OVERLAY_ID
+}
+
+function hidePlaygamaLoadingOverlay(node) {
+    if (!isPlaygamaLoadingOverlay(node)) {
+        return
+    }
+
+    node.style.setProperty('display', 'none', 'important')
+    node.style.setProperty('visibility', 'hidden', 'important')
+    node.style.setProperty('opacity', '0', 'important')
+    node.style.setProperty('pointer-events', 'none', 'important')
+}
+
+;(function suppressPlaygamaLoadingScreen() {
+    const existing = document.getElementById(PLAYGAMA_OVERLAY_ID)
+    hidePlaygamaLoadingOverlay(existing)
+
+    const observer = new MutationObserver(function (mutations) {
+        for (let i = 0; i < mutations.length; i++) {
+            const added = mutations[i].addedNodes
+            for (let j = 0; j < added.length; j++) {
+                hidePlaygamaLoadingOverlay(added[j])
+            }
+        }
+    })
+    observer.observe(document.body, { childList: true })
+})()
 
 // utils
 window.unityInstance = null
