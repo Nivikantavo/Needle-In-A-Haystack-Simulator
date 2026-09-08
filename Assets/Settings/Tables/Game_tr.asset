@@ -146,6 +146,10 @@ MonoBehaviour:
     m_Localized: "Samanl\u0131kta i\u011Fne aramak"
     m_Metadata:
       m_Items: []
+  - m_Id: 82145673948160
+    m_Localized: "Kullan\u0131c\u0131 gizli"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

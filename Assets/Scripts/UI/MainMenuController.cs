@@ -14,8 +14,9 @@ namespace Needle.UI
     public sealed class MainMenuController : MonoBehaviour
     {
         const int TimedPresetIndex = 2;
-        const string TimeModeLocalizationTable = "Game";
-        const string TimeModeLocalizationKey = "Time Mode";
+        const string LocalizationTable = "Game";
+        const string HiddenUserLocalizationKey = "User is hidden";
+        const string LeaderboardId = "bestTime";
 
         [Header("Menu")]
         [SerializeField] GameObject _menuRoot;
@@ -62,10 +63,12 @@ namespace Needle.UI
         readonly PlaygamaPlatformLifecycle _platformLifecycle = new PlaygamaPlatformLifecycle();
         readonly TimeAttackClock _clock = new TimeAttackClock();
         readonly TimeAttackRecordService _records = new TimeAttackRecordService();
+        readonly PlaygamaLeaderboardService _leaderboards = new PlaygamaLeaderboardService();
+        readonly PlaygamaPlayerService _player = new PlaygamaPlayerService();
         readonly LeaderboardEntry[] _emptyLeaderboard = System.Array.Empty<LeaderboardEntry>();
         readonly List<RaycastResult> _uiRaycastHits = new List<RaycastResult>(8);
         PointerEventData _pointerEventData;
-        LocalizedStringWatcher _timeModeName;
+        LocalizedStringWatcher _hiddenUserName;
         bool _isValid;
         bool _listenersBound;
         bool _isGameplaySession;
@@ -77,6 +80,7 @@ namespace Needle.UI
         Coroutine _victoryRoutine;
         Coroutine _gameReadyRoutine;
         Coroutine _taskTextRoutine;
+        int _leaderboardRequestId;
         bool _usesTouchControls;
 
         bool UsesTouchControls => _usesTouchControls;
@@ -87,10 +91,10 @@ namespace Needle.UI
         {
             _usesTouchControls = ResolveTouchControls();
             Validate();
-            _timeModeName = new LocalizedStringWatcher(
-                TimeModeLocalizationTable,
-                TimeModeLocalizationKey,
-                TimeModeLocalizationKey);
+            _hiddenUserName = new LocalizedStringWatcher(
+                LocalizationTable,
+                HiddenUserLocalizationKey,
+                TimeAttackLeaderboardMapper.HiddenUserFallback);
             _audioSettings.LoadAndApply();
             _localeSettings.Ready += OnLocaleReady;
             _localeSettings.LoadAndApply();
@@ -115,8 +119,8 @@ namespace Needle.UI
             }
 
             StopTaskTextRoutine();
-            _timeModeName?.Dispose();
-            _timeModeName = null;
+            _hiddenUserName?.Dispose();
+            _hiddenUserName = null;
         }
 
         void Update()
@@ -125,6 +129,8 @@ namespace Needle.UI
 
             if (_interstitialAds != null)
                 _interstitialAds.Tick(Time.unscaledDeltaTime);
+
+            _leaderboards.Tick(Time.unscaledTime);
 
             if (!_isTimedSession || !_isGameplaySession || IsGameplayFrozen)
                 return;
@@ -337,8 +343,25 @@ namespace Needle.UI
             if (!RequiredRefs.Assign(_leaderboardPanel, nameof(_leaderboardPanel), this))
                 return;
 
+            int requestId = ++_leaderboardRequestId;
             _leaderboardPanel.Open();
-            _leaderboardPanel.Initialize(BuildLeaderboardEntries(), BuildPlayerLeaderboardEntry());
+            _leaderboardPanel.Initialize(_emptyLeaderboard, BuildPlayerLeaderboardEntry());
+
+            if (_player.IsAuthorizationSupported && !_player.IsAuthorized &&
+                (_leaderboards.IsInGame || _leaderboards.CanSetScore))
+            {
+                _player.Authorize(success =>
+                {
+                    if (success)
+                        TrySubmitBestToPlatform();
+
+                    LoadLeaderboardEntries(requestId);
+                });
+                return;
+            }
+
+            TrySubmitBestToPlatform();
+            LoadLeaderboardEntries(requestId);
         }
 
         void StartGame(int presetIndex, bool timed = false)
@@ -393,7 +416,9 @@ namespace Needle.UI
             {
                 _clock.Stop();
                 RefreshTimerHud();
-                _records.TrySubmit(_clock.ElapsedSeconds);
+                if (_records.TrySubmit(_clock.ElapsedSeconds))
+                    TrySubmitBestToPlatform();
+
                 RefreshLeaderboardPlayer();
             }
 
@@ -500,6 +525,7 @@ namespace Needle.UI
 
         void CloseOverlays()
         {
+            _leaderboardRequestId++;
             if (_settingsPanel != null)
                 _settingsPanel.Close();
             if (_leaderboardPanel != null)
@@ -573,31 +599,71 @@ namespace Needle.UI
 
         void RefreshLeaderboardPlayer()
         {
-            if (_leaderboardPanel == null)
+            if (_leaderboardPanel == null || !_leaderboardPanel.gameObject.activeSelf)
                 return;
 
             _leaderboardPanel.SetPlayerEntry(BuildPlayerLeaderboardEntry());
         }
 
-        LeaderboardEntry[] BuildLeaderboardEntries()
+        void LoadLeaderboardEntries(int requestId)
         {
-            return _emptyLeaderboard;
+            if (!_leaderboards.IsInGame)
+                return;
+
+            _leaderboards.GetEntries(LeaderboardId, (success, entries) =>
+            {
+                if (requestId != _leaderboardRequestId)
+                    return;
+
+                if (_leaderboardPanel == null || !_leaderboardPanel.gameObject.activeSelf)
+                    return;
+
+                if (!success)
+                    return;
+
+                List<TimeAttackLeaderboardRow> rows = TimeAttackLeaderboardMapper.ParseEntries(
+                    entries,
+                    GetHiddenUserDisplayName());
+                _leaderboardPanel.Initialize(
+                    TimeAttackLeaderboardMapper.ToEntries(TimeAttackLeaderboardMapper.TakeTop(rows)),
+                    BuildPlayerLeaderboardEntry(rows));
+            });
         }
 
-        LeaderboardEntry BuildPlayerLeaderboardEntry()
+        void TrySubmitBestToPlatform()
         {
+            if (!_player.IsAuthorized || !_leaderboards.CanSetScore)
+                return;
+
+            if (!_records.TryGetBest(out float best))
+                return;
+
+            _leaderboards.SetScore(LeaderboardId, TimeAttackLeaderboardMapper.ToMilliseconds(best));
+        }
+
+        LeaderboardEntry BuildPlayerLeaderboardEntry(IReadOnlyList<TimeAttackLeaderboardRow> platformRows = null)
+        {
+            if (platformRows != null &&
+                TimeAttackLeaderboardMapper.TryFindPlayer(platformRows, _player.Id, out TimeAttackLeaderboardRow platformRow))
+                return TimeAttackLeaderboardMapper.ToEntry(platformRow);
+
             if (!_records.TryGetBest(out float best))
                 return null;
 
-            return new LeaderboardEntry(1, GetTimeModeDisplayName(), TimeAttackClock.Format(best), null);
+            return new LeaderboardEntry(
+                0,
+                TimeAttackLeaderboardMapper.ResolveDisplayName(_player.Name, GetHiddenUserDisplayName()),
+                TimeAttackClock.Format(best),
+                null,
+                _player.Photo);
         }
 
-        string GetTimeModeDisplayName()
+        string GetHiddenUserDisplayName()
         {
-            if (_timeModeName == null || string.IsNullOrEmpty(_timeModeName.Value))
-                return TimeModeLocalizationKey;
+            if (_hiddenUserName == null || string.IsNullOrEmpty(_hiddenUserName.Value))
+                return TimeAttackLeaderboardMapper.HiddenUserFallback;
 
-            return _timeModeName.Value;
+            return _hiddenUserName.Value;
         }
 
         void FreezeGameplayForInterrupt()

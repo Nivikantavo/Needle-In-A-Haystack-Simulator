@@ -146,6 +146,10 @@ MonoBehaviour:
     m_Localized: Trouver une aiguille dans une botte de foin
     m_Metadata:
       m_Items: []
+  - m_Id: 82145673948160
+    m_Localized: "Utilisateur masqu\xE9"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

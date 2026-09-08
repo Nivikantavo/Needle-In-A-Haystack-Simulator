@@ -1690,7 +1690,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.1
+  m_fontSize: 55.9
   m_fontSizeBase: 71.96
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7442,7 +7442,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.05
+  m_fontSize: 41.6
   m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -20119,7 +20119,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 0.90961653, b: 0.745283, a: 1}
-  m_Intensity: 1.3
+  m_Intensity: 1.05
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -48126,7 +48126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4665489072828801782, guid: 8cf12714510504b8d8293e9f9b87b82e, type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 66.1
       objectReference: {fileID: 0}
     - target: {fileID: 4665489072828801782, guid: 8cf12714510504b8d8293e9f9b87b82e, type: 3}
       propertyPath: m_fontAsset
@@ -61545,7 +61545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2943608113050655845, guid: c05539e161d4d4fca92777f7311f32d3, type: 3}
       propertyPath: m_fontSize
-      value: 59.8
+      value: 53.6
       objectReference: {fileID: 0}
     - target: {fileID: 2943608113050655845, guid: c05539e161d4d4fca92777f7311f32d3, type: 3}
       propertyPath: m_fontAsset
@@ -61556,12 +61556,16 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2943608113050655845, guid: c05539e161d4d4fca92777f7311f32d3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9099708462002627402, guid: 09986ecc677f3124b81f3b46daaeb68b, type: 2}
+    - target: {fileID: 2943608113050655845, guid: c05539e161d4d4fca92777f7311f32d3, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2943608113050655845, guid: c05539e161d4d4fca92777f7311f32d3, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2943608113062771022, guid: c05539e161d4d4fca92777f7311f32d3, type: 3}
       propertyPath: m_AnchorMax.y

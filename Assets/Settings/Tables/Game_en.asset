@@ -146,6 +146,10 @@ MonoBehaviour:
     m_Localized: Find a needle in a haystack
     m_Metadata:
       m_Items: []
+  - m_Id: 82145673948160
+    m_Localized: User is hidden
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

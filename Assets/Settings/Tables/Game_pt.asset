@@ -146,6 +146,10 @@ MonoBehaviour:
     m_Localized: Encontrar uma agulha num palheiro
     m_Metadata:
       m_Items: []
+  - m_Id: 82145673948160
+    m_Localized: "Usu\xE1rio oculto"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

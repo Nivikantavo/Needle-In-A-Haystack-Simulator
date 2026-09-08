@@ -5,21 +5,21 @@ AudioImporter:
   serializedVersion: 8
   defaultSettings:
     serializedVersion: 2
-    loadType: 1
+    loadType: 0
     sampleRateSetting: 0
     sampleRateOverride: 44100
     compressionFormat: 1
-    quality: 0.6
+    quality: 0.01
     conversionMode: 0
     preloadAudioData: 1
   platformSettingOverrides:
     WebGL:
       serializedVersion: 2
-      loadType: 1
+      loadType: 0
       sampleRateSetting: 2
       sampleRateOverride: 44100
-      compressionFormat: 1
-      quality: 0.6
+      compressionFormat: 7
+      quality: 0.06
       conversionMode: 0
       preloadAudioData: 1
   forceToMono: 1
